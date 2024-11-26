@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Agregar Cita</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
+	<style>
+		body {
+					background: url('/img/huellas3.jpg') no-repeat center center fixed;
+					background-size: cover;
+				}
+
+				.hero {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					height: 80vh;
+				}
+
+				.content-center {
+					background: white;
+					padding: 30px;
+					border-radius: 15px;
+					box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+					width: 90%;
+					max-width: 400px;
+					text-align: center;
+				}
+
+				h1 {
+					margin-bottom: 20px;
+					color: #003366;
+				}
+
+				.highlight {
+					color: #00b359;
+				}
+
+				.form-single-column label {
+					display: block;
+					margin-top: 15px;
+					font-weight: bold;
+				}
+
+				.form-single-column input,
+				.form-single-column select {
+					width: 100%;
+					padding: 10px;
+					margin-top: 5px;
+					border: 1px solid #b3e6ff;
+					border-radius: 10px;
+					background-color: #e6faff;
+				}
+
+				button.cta {
+					margin-top: 20px;
+					padding: 10px 20px;
+					background-color: #003366;
+					color: white;
+					border: none;
+					border-radius: 20px;
+					cursor: pointer;
+					font-size: 1rem;
+				}
+
+				button.cta:hover {
+					background-color: #00b359;
+				}
+
+		input[type="text"],
+		input[type="date"],
+		input[type="time"],
+		select {
+			width: 100%;
+			padding: 12px;
+			margin: 10px 0;
+			border: 2px solid #ddd;
+			border-radius: 5px;
+			font-size: 1rem;
+		}
+
+		.btn-submit {
+			width: 100%;
+			padding: 15px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			font-size: 1.2rem;
+			font-weight: bold;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-submit:hover {
+			background-color: #00b077;
+		}
+
+		.btn-back {
+			display: inline-block;
+			margin-top: 20px;
+			padding: 10px 20px;
+			background-color: #f44336;
+			color: white;
+			font-size: 1rem;
+			font-weight: bold;
+			border-radius: 5px;
+			text-decoration: none;
+		}
+
+		.btn-back:hover {
+			background-color: #cc0000;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="navbar">
+		<nav>
+			<ul class="menu-links">
+				<li><a href="/verCitas">| Ver Citas</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="hero">
+		<div class="form-container">
+			<h2>Registrar Nueva Cita</h2>
+			<form class="form-single-column" th:action="@{/guardarCita}" th:object="${cita}" method="post">
+				<input type="hidden" th:field="*{id}" />
+				
+				<label for="fecha">Fecha:</label>
+				<input type="date" id="fecha" name="fecha" required="required" th:value="${cita.fecha}" />
+
+				<label for="hora">Hora:</label>
+				<input type="time" id="hora" name="hora" required="required" th:value="${cita.hora}" />
+
+				<label for="motivo">Motivo:</label>
+				<input type="text" id="motivo" name="motivo" required="required" th:value="${cita.motivo}" />
+
+				<label for="propietario">Propietario:</label>
+				<select id="propietario" name="propietario" th:field="*{propietario}" required>
+					<option th:each="prop : ${propietarios}" th:value="${prop.id}" th:text="${prop.nombre}"></option>
+				</select>
+
+				<label for="mascota">Mascota:</label>
+				<select id="mascota" name="mascota" th:field="*{mascota}" required>
+					<option th:each="masc : ${mascotas}" th:value="${masc.id}" th:text="${masc.nombre}"></option>
+				</select>
+
+				<label for="veterinario">Veterinario:</label>
+				<select id="veterinario" name="veterinario" th:field="*{veterinario}" required>
+					<option th:each="vet : ${veterinarios}" th:value="${vet.id}" th:text="${vet.nombre}"></option>
+				</select>
+
+				<label for="tratamiento">Tratamiento:</label>
+				<select id="tratamiento" name="tratamiento" th:field="*{tratamiento}" required>
+					<option th:each="trat : ${tratamientos}" th:value="${trat.id}" th:text="${trat.nombre}"></option>
+				</select>
+
+				<button type="submit" class="btn-submit">Registrar Cita</button>
+			</form>
+		</div>
+	</main>
+</body>
+
+</html>

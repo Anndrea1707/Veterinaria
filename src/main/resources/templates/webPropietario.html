@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Propietario</title>
+	<link rel="stylesheet" href="/css/style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet" />
+	<style>
+		.logout-btn {
+		      background-color: rgb(0, 255, 255);
+		      color: white;
+		      padding: 10px 15px;
+		      border: none;
+		      border-radius: 5px;
+		      font-weight: bold;
+		      cursor: pointer;
+		      transition: background-color 0.3s ease;
+		    }
+
+		    .logout-btn:hover {
+		      background-color: #00d18b;
+		    }
+			
+		.logout-btn a {
+			color: black;
+			text-decoration: none;
+			font-family: "Fredoka", sans-serif;
+			font-size: 1rem;
+		}
+	</style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <nav>
+        <ul class="menu-links">
+          <li>
+            <a href="/verMascotas"><i class="fas fa-home"></i> Mascotas |</a>
+          </li>
+          <li>
+            <a href="/verCitas"><i class="fas fa-compass"></i> Citas |</a>
+          </li>
+          <li>
+            <a href="/verVeterinarioPropietario"><i class="fas fa-concierge-bell"></i> Ver Veterinarios |</a>
+          </li>
+		  <li>
+			<a href="/verPropietario"><i class="fas fa-concierge-bell"></i> Ver Propietarios |</a>
+		  </li>
+        </ul>
+      </nav>
+	  <button class="logout-btn"><a href="/index">Salir</a></button>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero">
+      <div class="content-box">
+        <h1>
+          Brindamos <span class="highlight">La mejor atencion</span><br />
+          Para tus mascotas
+        </h1>
+        <button class="cta"><a href="/nuevoPropietario">Nuevo Propietario</a></button>
+      </div>
+      <div class="image-box">
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/045/903/126/small_2x/cute-cat-and-dog-togather-on-transparent-background-png.png"
+          alt="Dog and Cat"
+          class="pets-image"
+        />
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="socials">
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+      </div>
+    </footer>
+  </body>
+  
+  
+  
+	</html>
